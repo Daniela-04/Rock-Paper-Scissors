@@ -8,6 +8,18 @@
     font-weight: 600;
 }
 
+button{
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
 body {
     background-image: radial-gradient(circle at top,
             hsl(214, 47%, 23%) 0%,
@@ -102,11 +114,12 @@ body {
     color: white;
     letter-spacing: 2.5px;
 }
+/* seccion principal */
 main{
     grid-area: game;
     
 }
-
+/* contenedor de los botones */
 .game{
     
     height: 100%;
@@ -121,7 +134,7 @@ main{
     place-items: center;
    
 }
-
+/* estilos globales de los botones  */
 .game button{
     margin: 30px;
     cursor: pointer;
@@ -135,6 +148,10 @@ main{
     height: fit-content;
 }
 
+button:hover{
+    scale: 1.1;
+}
+/* estilos especificos */
 #paper{
     grid-area: paper;
     border: 12px solid #4865f4;
@@ -152,6 +169,44 @@ main{
     border: 12px solid #dc2e4e;
     box-shadow: inset 0 6px hsla(0, 0%, 0%, 0.2), 0 6px hsla(349, 70%, 56%, 0.7);
     
+}
+/* tooltip reglas */
+.rules-img{
+    /* no display hasta que no se active */
+    display: none;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-areas: 
+    "tittle X"
+    "img img";
+    row-gap: 20px;
+    color: black;
+    position: fixed;
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    z-index: 10;
+}
+
+.rules-img h1{
+    justify-self: start;
+    grid-area: tittle;
+    font-size: 2rem;
+}
+
+.rules-img img{
+    grid-area: img;
+}
+
+#close-rules{
+    background-image: url(images/icon-close.svg);
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    justify-self: end;
+}
+
+#close-rules:hover{
+    background-image: url(images/icon-close-red.svg);
 }
 
 
