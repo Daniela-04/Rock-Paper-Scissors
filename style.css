@@ -35,7 +35,7 @@ body {
     min-height: 100vh;
     grid-template-areas: 
     "score"
-    "game"
+    "choose"
     "rules"
     "footer";
 }
@@ -116,11 +116,11 @@ body {
 }
 /* seccion principal */
 main{
-    grid-area: game;
+    grid-area: choose;
     
 }
 /* contenedor de los botones */
-.game{
+.choose{
     
     height: 100%;
     width: 100%;
@@ -135,7 +135,7 @@ main{
    
 }
 /* estilos globales de los botones  */
-.game button{
+.choose button{
     margin: 30px;
     cursor: pointer;
     background-color: white;
