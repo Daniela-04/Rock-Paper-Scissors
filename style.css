@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: radial-gradient(circle at top,
+            hsl(214, 47%, 23%) 0%,
+            hsl(237, 49%, 15%) 100%);
+    color: white;
+    font-family: "Barlow Semi Condensed";
+    font-weight: 600;
+}
+/* contenedor principal */
+.container{
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3,1fr) 0.15fr;
+    min-height: 100vh;
+    grid-template-areas: 
+    "score"
+    "game"
+    "rules"
+    "footer";
+}
+/* header con el titulo y los puntos */
+.score{
+    grid-area: score;
+    width: fit-content;
+    height: fit-content;
+    border: 2px solid hsl(217, 16%, 45%);
+    border-radius: 10px;
+    margin-top: 30px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25vw;
+}
+/* contenedor blanco de puntos */
+.points{
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* Score */
+.points p:first-child{
+    color: hsl(225, 54%, 50%);
+    letter-spacing: 1px;
+    font-size: 12px;
+    justify-self: flex-start;
+   
+}
+/* numero de puntos */
+.points p:nth-child(2){
+    color: hsl(225, 2%, 40%);
+    font-size: 40px;
+    font-weight: 700;
+   
+}
+/* titulo con espaciado particular*/
+.title{
+    font-size: 20px;
+    line-height: 0.78; /* el espacio que tienen las palabras es 0.78 veces la fuente*/
+}
+
+
+
+
+
+
+
+.attribution {
+    font-size: 12px;
+    text-align: center;
+    grid-area: footer;
+}
+
+.attribution a {
+    color: rgba(140, 253, 41, 0.804)
+}
