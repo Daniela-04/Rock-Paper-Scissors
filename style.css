@@ -4,6 +4,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: "Barlow Semi Condensed";
+    font-weight: 600;
 }
 
 body {
@@ -11,15 +13,13 @@ body {
             hsl(214, 47%, 23%) 0%,
             hsl(237, 49%, 15%) 100%);
     color: white;
-    font-family: "Barlow Semi Condensed";
-    font-weight: 600;
 }
 /* contenedor principal */
 .container{
     display: grid;
     justify-items: center;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(3,1fr) 0.15fr;
+    grid-template-rows: 0.5fr auto 0.15fr 0.1fr;
     min-height: 100vh;
     grid-template-areas: 
     "score"
@@ -69,18 +69,101 @@ body {
    
 }
 /* titulo con espaciado particular*/
-.title{
+#title{
     font-size: 20px;
     line-height: 0.78; /* el espacio que tienen las palabras es 0.78 veces la fuente*/
 }
 
+/* boton de las reglas */
+#rules{
+    grid-area: rules;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    
+}
+
+@media screen and (max-width: 768px) {
+    #rules{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+#rules-btn{
+    cursor: pointer;
+    margin-right: 30px;
+    padding: 8px 30px;
+    border-radius: 9px;
+    background-color: transparent;
+    border: 2px solid hsl(217, 16%, 45%);
+    color: white;
+    letter-spacing: 2.5px;
+}
+main{
+    grid-area: game;
+    
+}
+
+.game{
+    
+    height: 100%;
+    width: 100%;
+    background: url(images/bg-triangle.svg)  no-repeat center;
+    background-size: 230px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-areas: 
+    "paper scissor"
+    "rock rock";
+    place-items: center;
+   
+}
+
+.game button{
+    margin: 30px;
+    cursor: pointer;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    padding: 25px 27.5px;
+    border-radius: 50%;
+    width: fit-content;
+    height: fit-content;
+}
+
+#paper{
+    grid-area: paper;
+    border: 12px solid #4865f4;
+    box-shadow: inset 0 6px hsla(0, 0%, 0%, 0.2), 0 6px hsla(230, 89%, 65%, 0.7);
+}
+
+#scissor{
+    grid-area: scissor;
+    border: 12px solid #ec9e0e;
+    box-shadow: inset 0 6px hsla(0, 0%, 0%, 0.2), 0 6px hsla(40, 84%, 53%, 0.7);
+}
+
+#rock{
+    grid-area: rock;
+    border: 12px solid #dc2e4e;
+    box-shadow: inset 0 6px hsla(0, 0%, 0%, 0.2), 0 6px hsla(349, 70%, 56%, 0.7);
+    
+}
 
 
-
-
-
+/* atribución */
+footer{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
 
 .attribution {
+    
     font-size: 12px;
     text-align: center;
     grid-area: footer;
