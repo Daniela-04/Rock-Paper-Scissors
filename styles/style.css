@@ -124,7 +124,7 @@ main{
     
     height: 100%;
     width: 100%;
-    background: url(images/bg-triangle.svg)  no-repeat center;
+    background: url(../images/bg-triangle.svg)  no-repeat center;
     background-size: 230px;
     display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -171,7 +171,7 @@ button:hover{
     
 }
 /* tooltip reglas */
-.rules-img{
+#rules-img{
     /* no display hasta que no se active */
     display: none;
     grid-template-columns: repeat(2,1fr);
@@ -187,18 +187,18 @@ button:hover{
     z-index: 10;
 }
 
-.rules-img h1{
+#rules-img h1{
     justify-self: start;
     grid-area: tittle;
     font-size: 2rem;
 }
 
-.rules-img img{
+#rules-img img{
     grid-area: img;
 }
 
 #close-rules{
-    background-image: url(images/icon-close.svg);
+    background-image: url(../images/icon-close.svg);
     background-size: cover;
     width: 20px;
     height: 20px;
@@ -206,7 +206,7 @@ button:hover{
 }
 
 #close-rules:hover{
-    background-image: url(images/icon-close-red.svg);
+    background-image: url(../images/icon-close-red.svg);
 }
 
 
