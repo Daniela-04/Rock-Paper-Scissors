@@ -117,11 +117,12 @@ body {
 /* seccion principal */
 main{
     grid-area: choose;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* contenedor de los botones */
-.choose{
-    
+#choose{
     height: 100%;
     width: 100%;
     background: url(../images/bg-triangle.svg)  no-repeat center;
@@ -135,7 +136,7 @@ main{
    
 }
 /* estilos globales de los botones  */
-.choose button{
+#choose button, #wait button{
     margin: 30px;
     cursor: pointer;
     background-color: white;
@@ -148,7 +149,7 @@ main{
     height: fit-content;
 }
 
-button:hover{
+#choose button:hover{
     scale: 1.1;
 }
 /* estilos especificos */
@@ -227,3 +228,40 @@ footer{
 .attribution a {
     color: rgba(140, 253, 41, 0.804)
 }
+/* fase dos del juego */
+
+/* contenedor de las selecciones */
+#wait{
+    display: none;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+    grid-template-areas:
+    "tuser thouse"
+    "user house"; 
+}
+/* orden de los elementos */
+#wait p:first-child{
+    grid-area: tuser;
+}
+ #wait p:nth-child(3){
+    grid-area: thouse;
+ }
+/* ⌚ todavia no esta implementado */
+.fadeOut{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.fadeIn{
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* @keyframes slide{
+    100%{
+        transform: translate(var(--x), var(--y));
+        transform: translate(-400%, 0);
+    }
+} */
+ /*⌚ todavia no esta implementado  */

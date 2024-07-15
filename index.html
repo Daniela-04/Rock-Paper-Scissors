@@ -7,7 +7,7 @@
   <!-- displays site properly based on user's device -->
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="styles/style.css">
-  <script defer src="javascripts/index.js"></script>
+  <script type="module" defer src="javascripts/index.js"></script>
   <title>Frontend Mentor | Rock, Paper, Scissors</title>
 
   <!-- Score
@@ -45,7 +45,7 @@
           <img src="images/image-rules.svg" alt="rules">
           <button id="close-rules"></button>
       </div>
-      <div class="choose">
+      <div id="choose">
         <button id="paper">
           <img src="images/icon-paper.svg" alt="paper">
         </button>
@@ -56,7 +56,12 @@
           <img src="images/icon-rock.svg" alt="rock">
         </button>
       </div>
-
+      <div id="wait">
+        <p>YOU PICKED</p>
+        <p id="selected"></p>
+        <p>THE HOUSE PICKED</p>
+        <p id="house"></p>
+      </div>
     </main>
     <section id="rules">
       <div >
