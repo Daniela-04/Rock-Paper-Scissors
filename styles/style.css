@@ -1,24 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Barlow Semi Condensed";
-    font-weight: 600;
-}
+/* html {
+    font-size: 10px;
+} */
 
-button{
-    appearance: none;
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    margin: 0;
-    font: inherit;
-    color: inherit;
-    cursor: pointer;
-    outline: none;
-}
+/* @media (min-width: 600) {
+    html {
+        font-size: 70%;
+    }
+} */
 
 body {
     background-image: radial-gradient(circle at top,
@@ -31,13 +21,15 @@ body {
     display: grid;
     justify-items: center;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr auto 0.15fr 0.1fr;
-    min-height: 100vh;
+    height: 100vh;
+    width: 100%;
+    grid-template-rows: 25vh auto 7.5vh 5vh;
     grid-template-areas: 
     "score"
     "choose"
     "rules"
     "footer";
+    /* overflow: hidden; */
 }
 /* header con el titulo y los puntos */
 .score{
@@ -46,18 +38,18 @@ body {
     height: fit-content;
     border: 2px solid hsl(217, 16%, 45%);
     border-radius: 10px;
-    margin-top: 30px;
-    padding: 18px;
+    margin: 1rem;
+    padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 25vw;
 }
 /* contenedor blanco de puntos */
-.points{
+.score__points{
     background-color: white;
     border-radius: 5px;
-    padding: 10px;
+    padding: 0.625rem;
     width: 100px;
     height: 80px;
     display: flex;
@@ -66,28 +58,29 @@ body {
     justify-content: center;
 }
 /* Score */
-.points p:first-child{
+.score__points-title{
     color: hsl(225, 54%, 50%);
     letter-spacing: 1px;
     font-size: 12px;
     justify-self: flex-start;
    
 }
+
+.score__title-img{
+   display: block;
+   max-width: 100%;
+}
+
 /* numero de puntos */
-.points p:nth-child(2){
+.score__points-number{
     color: hsl(225, 2%, 40%);
     font-size: 40px;
     font-weight: 700;
    
 }
-/* titulo con espaciado particular*/
-#title{
-    font-size: 20px;
-    line-height: 0.78; /* el espacio que tienen las palabras es 0.78 veces la fuente*/
-}
 
 /* boton de las reglas */
-#rules{
+.rules-button{
     grid-area: rules;
     width: 100%;
     display: flex;
@@ -96,18 +89,11 @@ body {
     
 }
 
-@media screen and (max-width: 768px) {
-    #rules{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-}
 
-#rules-btn{
+
+.button{
     cursor: pointer;
-    margin-right: 30px;
-    padding: 8px 30px;
+    padding: 0.5rem 1.875rem;
     border-radius: 9px;
     background-color: transparent;
     border: 2px solid hsl(217, 16%, 45%);
@@ -115,18 +101,17 @@ body {
     letter-spacing: 2.5px;
 }
 /* seccion principal */
-main{
+.main{
     grid-area: choose;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    
 }
 /* contenedor de los botones */
-#choose{
-    height: 100%;
+.game-choose{
+    grid-area: choose;
     width: 100%;
+    height: 100%;
     background: url(../images/bg-triangle.svg)  no-repeat center;
-    background-size: 230px;
+    background-size: 14.375rem;
     display: grid;
     grid-template-columns: repeat(2,1fr);
     grid-template-areas: 
@@ -136,45 +121,105 @@ main{
    
 }
 /* estilos globales de los botones  */
-#choose button, #wait button{
-    margin: 30px;
+.game-choose__option{
+    margin: 1rem;
     cursor: pointer;
     background-color: white;
     display: flex;
     align-items: center;
     justify-items: center;
-    padding: 25px 27.5px;
+    padding: 1.5625rem 1.7188rem;
     border-radius: 50%;
-    width: fit-content;
-    height: fit-content;
 }
 
-#choose button:hover{
+game-choose__option-img{
+    display: block;
+    max-width: 100%;
+    
+}
+
+.game-choose__option:hover{
     scale: 1.1;
 }
 /* estilos especificos */
-#paper{
+.game-choose__option--paper{
     grid-area: paper;
     border: 12px solid #4865f4;
     box-shadow: inset 0 6px hsla(0, 0%, 0%, 0.2), 0 6px hsla(230, 89%, 65%, 0.7);
 }
 
-#scissor{
+.game-choose__option--scissors{
     grid-area: scissor;
     border: 12px solid #ec9e0e;
     box-shadow: inset 0 6px hsla(0, 0%, 0%, 0.2), 0 6px hsla(40, 84%, 53%, 0.7);
 }
 
-#rock{
+.game-choose__option--rock{
     grid-area: rock;
     border: 12px solid #dc2e4e;
     box-shadow: inset 0 6px hsla(0, 0%, 0%, 0.2), 0 6px hsla(349, 70%, 56%, 0.7);
     
 }
+/* modificador para desactivar los botones */
+.game-choose__option--disabled{
+    pointer-events: none;
+    cursor: not-allowed;
+    transform: scale(1.5);
+}
+
+.disabled{
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0;  
+}
+
+/* contenedor de los resultados */
+
+.game-choose__result{
+    grid-area: choose;
+    height: 100%;
+    width: 100%;
+    /* display none hasta que se active y luego display:flex */
+    display:none;
+    align-items: center;
+    justify-content: center;
+    gap: 10vw;
+}
+
+
+.game-choose__result--column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5vh;
+}
+
+.button-option__img{
+    display: block;
+    max-width: 100%;
+}
+
+.game-choose__result-btn{
+    margin-right: 0;
+    scale: 1.5;
+}
+
+.game-choose__result-text{
+    color: white;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+
+
+
 /* tooltip reglas */
-#rules-img{
-    /* no display hasta que no se active */
+.rules{
+    /* no display hasta que no se active y luego display:grid */
     display: none;
+    align-self: center;
     grid-template-columns: repeat(2,1fr);
     grid-template-areas: 
     "tittle X"
@@ -184,21 +229,24 @@ main{
     position: fixed;
     background-color: white;
     border-radius: 8px;
-    padding: 30px;
+    padding: 1.875rem;
     z-index: 10;
 }
 
-#rules-img h1{
+.rules__title{
+    grid-area: tittle;
     justify-self: start;
     grid-area: tittle;
     font-size: 2rem;
 }
 
-#rules-img img{
+.rules__img{
     grid-area: img;
+    max-width: 100%;
 }
 
-#close-rules{
+.rules__close{
+    grid-area: X;
     background-image: url(../images/icon-close.svg);
     background-size: cover;
     width: 20px;
@@ -206,7 +254,7 @@ main{
     justify-self: end;
 }
 
-#close-rules:hover{
+.rules__close:hover{
     background-image: url(../images/icon-close-red.svg);
 }
 
@@ -228,40 +276,164 @@ footer{
 .attribution a {
     color: rgba(140, 253, 41, 0.804)
 }
-/* fase dos del juego */
 
-/* contenedor de las selecciones */
-#wait{
-    display: none;
+.carga{
     width: 100%;
-    height: 100%;
-    place-items: center;
-    grid-template-areas:
-    "tuser thouse"
-    "user house"; 
-}
-/* orden de los elementos */
-#wait p:first-child{
-    grid-area: tuser;
-}
- #wait p:nth-child(3){
-    grid-area: thouse;
- }
-/* ⌚ todavia no esta implementado */
-.fadeOut{
-    opacity: 0;
-    pointer-events: none;
-}
+    display: grid;
+    grid-template-areas: 'main';
+    align-items: center;
+    justify-items: center;
+  }
+  
+  .carga__circle1,.carga__circle2,.carga__circle3{
+    grid-row: 1/2;
+    grid-column: 1/2;
+    animation: pulse 3000ms 3;
+  }
+  
+  .carga__circle1{
+    background-color: rgb(68, 107, 158, .7);
+    width: 6.25rem;
+    height: 6.25rem;
+    border-radius: 50%;
+    position: relative;
+    z-index: 0;
+  }
+  
+  .carga__circle2{
+     background-color: rgb(59, 97, 146,.4);
+      width: 10.625rem;
+      height: 10.625rem;
+      border-radius: 50%;
+      z-index: -1;
+  }
+  
+  .carga__circle3{
+    background-color: rgb(52, 92, 143,.5);
+    width: 16.875rem;
+    height: 16.875rem;
+    border-radius: 50%;
+    z-index: -2;
+  }
 
-.fadeIn{
-    opacity: 1;
-    pointer-events: all;
-}
-
-/* @keyframes slide{
-    100%{
-        transform: translate(var(--x), var(--y));
-        transform: translate(-400%, 0);
+  @media (max-width: 320px) {
+    .game-choose__option--disabled{
+        width: 6.25rem;
+        height: 6.25rem;
+        transform: none;
     }
-} */
- /*⌚ todavia no esta implementado  */
+    .game-choose__option--disabled img{
+       transform: scale(1.8);
+    
+    }
+
+  }
+
+  @media (max-width: 600px) {
+    .rules{
+        /* no display hasta que no se active y luego display:grid */
+        display: none;
+        min-height: 100vh;
+        min-width: 100vw;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "tittle"
+        "img"
+        "X";
+        row-gap: 20px;
+        color: black;
+        position: fixed;
+        background-color: white;
+        padding: 1.875rem;
+        z-index: 10;
+        align-items: center;
+        justify-items: center;
+
+    }
+
+    .rules__title{
+        justify-self: center;
+    }
+
+    .rules__close{
+        justify-self: center;
+    }
+
+
+    .rules-button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .game-choose__option--disabled{
+        transform: none;
+    }
+
+    .game-choose__result{
+        padding-bottom: 1.8rem;
+        flex-wrap: wrap;
+    }
+
+    .game-choose__result-you{
+        order: 1;
+    }
+    
+    .game-choose__result-house{
+        order: 2;
+    }
+    
+    .game-choose__result-center{
+        order: 3;
+    }
+    .carga__circle1{
+        background-color: rgb(68, 107, 158, .7);
+        width: 1.7rem;
+        height: 1.7rem;
+        border-radius: 50%;
+        position: relative;
+        z-index: 0;
+      }
+      
+      .carga__circle2{
+         background-color: rgb(59, 97, 146,.4);
+          width: 2.4rem;
+          height: 2.4rem;
+          border-radius: 50%;
+          z-index: -1;
+      }
+      
+      .carga__circle3{
+        background-color: rgb(52, 92, 143,.5);
+        width: 3.4rem;
+        height: 3.4rem;
+        border-radius: 50%;
+        z-index: -2;
+      }
+}
+  
+
+
+/* ⭐ animations */
+
+@keyframes pulse{
+    0% {transform: scale(1);}
+    50% {transform: scale(1.2);}
+    100% {transform: scale(1);}
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
+  @keyframes finalScale{
+    0% {scale: 1;}
+    100% {scale: 1.5;}
+  }
+
