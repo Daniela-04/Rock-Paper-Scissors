@@ -1,20 +1,16 @@
 
-const rules = document.querySelector('#rules-btn');
-const imgRules = document.querySelector('#rules-img');
-const closeRules = document.querySelector('#close-rules');
-export default function menuReglas () {
-  rules.addEventListener('click', () => {
-    if (imgRules.style.display === 'grid') {
-      imgRules.style.display = 'none';
-      rules.style.display = 'block';
-    } else {
-      imgRules.style.display = 'grid';
-      rules.style.display = 'none';
-    }
-  });
+export function menuReglas () {
+  const rulesButton = document.querySelector('.rules-button__btn');
+  const rulesContainer = document.querySelector('.rules');
+  const mainContainer = document.querySelector('.game-choose');
+  const closeRulesButton = document.querySelector('#close-rules');
 
-  closeRules.addEventListener('click', () => {
-    imgRules.style.display = 'none';
-    rules.style.display = 'block';
-  });
+  const toggleRulesContainer = () => {
+    rulesContainer.style.display = rulesContainer.style.display === 'grid' ? 'none' : 'grid';
+    mainContainer.classList.toggle('disabled');
+    rulesButton.style.display = rulesContainer.style.display === 'grid' ? 'none' : 'block';
+  };
+
+  rulesButton.addEventListener('click', toggleRulesContainer);
+  closeRulesButton.addEventListener('click', toggleRulesContainer);
 }
